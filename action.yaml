@@ -33,6 +33,8 @@ runs:
       shell: bash
     - name: Unzip the composite actions file
       run: |
+        ls ./.github
+        ls ./.github/actions
         unzip -d ./.github/actions/$ACTION_NAME ./.github/actions/$ACTION_NAME.zip
         rm ./.github/actions/$ACTION_NAME.zip
         ls ./.github/actions/
