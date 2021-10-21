@@ -29,15 +29,5 @@ runs:
       env:
           S3_BUCKET_NAME: ${{ inputs.s3-bucket-name }}
           ACTION_NAME: ${{ inputs.action-name }}
-      run: aws s3 cp s3://$S3_BUCKET_NAME/$ACTION_NAME.zip ./.github/actions/$ACTION_NAME.zip
-      shell: bash
-    - name: Unzip the composite actions file
-      env:
-        ACTION_NAME: ${{ inputs.action-name }}
-      run: |
-        ls ./.github
-        ls ./.github/actions
-        unzip -d ./.github/actions/$ACTION_NAME ./.github/actions/$ACTION_NAME.zip
-        rm ./.github/actions/$ACTION_NAME.zip
-        ls ./.github/actions/
+      run: aws s3 cp s3://$S3_BUCKET_NAME/$ACTION_NAME.yaml ./.github/actions/$ACTION_NAME/action.yaml
       shell: bash
